@@ -1,0 +1,20 @@
+<div>
+    <span class="chip">
+        <span class="chip-content">Demo UI: Autocomplete</span>
+    </span>
+    <button mat-raised-button color="primary" (click)="openDialog()">BINDING</button>
+</div>
+
+<br>
+<mat-form-field>
+    <input type="text" placeholder="{{binding.title}}" matInput [formControl]="formControl" [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option disabled class="loading" *ngIf="loading">
+        <mat-spinner diameter="35"></mat-spinner>
+      </mat-option>
+      <mat-option *ngFor="let item of (autoFilter | async)?.expansion.contains"
+        [value]="item.code + ' |' + item.display  + '|'">
+        <span class="code">{{item.code}}</span>{{item.display}}
+      </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
