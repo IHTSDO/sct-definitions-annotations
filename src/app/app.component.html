@@ -13,7 +13,9 @@
     <ng-container *ngFor="let mainItem of editionsDetails">
       <button mat-menu-item [matMenuTriggerFor]="sub_menu">{{ mainItem.editionName }}</button>
       <mat-menu #sub_menu="matMenu">
-         <button *ngFor="let subItem of mainItem.editions" mat-menu-item (click)="setEdition(subItem)">{{ subItem.resource.title }}</button>
+        <button *ngFor="let subItem of mainItem.editions" mat-menu-item (click)="setEdition(subItem)">
+          {{ subItem.resource.version.substr(subItem.resource.version.lastIndexOf('/')+1) }}
+        </button>
       </mat-menu>
     </ng-container>
   </mat-menu>

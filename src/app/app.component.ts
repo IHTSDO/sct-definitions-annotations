@@ -18,6 +18,7 @@ export class AppComponent {
   selectedLanguage = 'en';
   fhirServers = [
     { name: "SNOMED Public", url: "https://dev-is-browser.ihtsdotools.org/fhir"},
+    // { name: "Daily build", url: "https://dailybuild.ihtsdotools.org/fhir"}
   ];
   selectedServer = this.fhirServers[0];
 
@@ -40,8 +41,9 @@ export class AppComponent {
       this.editionsDetails = [];
       this.editions = response.entry;
       let editionNames = new Set();
+      console.log(this.editions)
       this.editions.forEach(loopEdition => {
-        editionNames.add(loopEdition.resource.title.substr(0,loopEdition.resource.title.lastIndexOf(' ')));
+        editionNames.add(loopEdition.resource.title); // .substr(0,loopEdition.resource.title.lastIndexOf(' '))
       });
       editionNames.forEach(editionName => {
         this.editionsDetails.push(
@@ -51,7 +53,7 @@ export class AppComponent {
           }
         );
       });
-      const currentVerIndex = this.editionsDetails.findIndex(x => x.editionName === 'International');
+      const currentVerIndex = this.editionsDetails.findIndex(x => x.editionName === 'International Edition');
       if (currentVerIndex >= 0) {
         this.setEdition(this.editionsDetails[currentVerIndex].editions[0]);
       } else {
@@ -80,7 +82,7 @@ export class AppComponent {
   }
 
   setEdition(edition: any) {
-    this.selectedEdition = edition.resource.title?.replace('SNOMED CT release ','');
+    this.selectedEdition = edition.resource.title + " - " + edition.resource.version.substr(edition.resource.version.lastIndexOf('/')+1);
     this.terminologyService.setFhirUrlParam(edition.resource.version);
   }
 
