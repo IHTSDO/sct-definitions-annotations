@@ -16,14 +16,14 @@
         [value]="item.display"
         (click)="optionSelected({ code: item.code, display: item.display, annotation: binding.annotations[item.code], definition: '' })">
         <span class="code">{{item.code}}</span>{{item.display}}
-        <img src="/assets/img/ilae-logo.png" alt="image" class="small-logo" *ngIf="binding.annotations[item.code]">
+        <img src="assets/img/ilae-logo.png" alt="image" class="small-logo" *ngIf="binding.annotations[item.code]">
       </mat-option>
     </mat-autocomplete>
 </mat-form-field>
 <p *ngIf="selectedConcept.code" class="annotation">
   {{selectedConcept.code}} |{{selectedConcept.display}}|
 </p>
-<img [src]="'/assets/img/' + logo" alt="image" class="normal-logo" *ngIf="hasLogo">
+<img [src]="'assets/img/' + logo" alt="image" class="normal-logo" *ngIf="hasLogo">
 <div *ngIf="loadingDefinitions">
   <mat-spinner diameter="35"></mat-spinner>
 </div>
