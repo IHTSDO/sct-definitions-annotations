@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-title>Clinical Notes Demo</mat-card-title>
+    <mat-card-content class="main-content">
+        <br>
+        <div fxLayout="row" fxLayoutGap="15px">
+            <div id="pic-box">
+                <img src="/assets/img/user.png" alt="image" class="user-pic">
+            </div>
+            <div>
+                <p id="patient-name">Sample, Patient</p>
+                <p>DOB: 1970/03/27</p>
+            </div>
+        </div>
+        <br>
+        <h2>Current encounter - {{ today }}</h2>
+        <div fxLayout="row" fxLayoutGap="25px">
+            <div class="data-entry-box">
+                <app-autocomplete-binding [binding]="binding"></app-autocomplete-binding>
+            </div>
+            <div class="data-entry-box">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Progress notes</mat-label>
+                    <textarea matInput placeholder="Type progress notes..." rows="20"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-flat-button color="primary" (click)="openSnackBar()">Save</button>
+        <button mat-flat-button color="warn" (click)="openSnackBar()">Cancel</button>
+    </mat-card-actions>
+</mat-card>
+

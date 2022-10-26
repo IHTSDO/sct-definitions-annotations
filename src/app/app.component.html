@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <img src="https://www.snomed.org/SNOMED/media/SNOMED/other/brand-mark.png" height="60px">
-  <span id="title">Coding demo template</span>
+  <span id="title">Definitions and annotations demo</span>
   <span class="example-spacer"></span>
   
   <button mat-raised-button color="accent" [matMenuTriggerFor]="serverMenu">FHIR Server: {{selectedServer.name}}</button>
@@ -23,11 +23,13 @@
     <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">{{language}}</button>
   </mat-menu>
 
-  <button mat-raised-button color="accent" (click)="this.excelService.exportAsExcelFile(this.bindingsForExport, 'bindings')">
+  <!-- <button mat-raised-button color="accent" (click)="this.excelService.exportAsExcelFile(this.bindingsForExport, 'bindings')">
     <mat-icon>cloud_download</mat-icon>&nbsp;&nbsp;Export Bindings
-  </button>
+  </button> -->
 
-  <a href="https://github.com/alopezo/coding-demo-template-ng" target="_blank" mat-raised-button color="accent"><mat-icon>info</mat-icon></a>
+  <a href="https://github.com/IHTSDO/sct-definitions-annotations" target="_blank" mat-raised-button color="accent"><mat-icon>info</mat-icon></a>
 
 </mat-toolbar>
-<app-coding-tabs></app-coding-tabs>
+<app-single-coding></app-single-coding>
+
+  

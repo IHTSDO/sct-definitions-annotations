@@ -1,0 +1,32 @@
+.data-entry-box {
+    width: 40%;
+}
+
+.main-content {
+    /* padding-bottom: 50px; */
+}
+
+  
+.example-full-width {
+    width: 100%;
+}
+
+mat-card-actions button {
+    margin: 10px;
+}
+
+.user-pic {
+    height: 100%;
+    width: 100%;
+    border: 1px solid;
+}
+
+#pic-box {
+    width: 75px;
+    height: 75px;
+}
+
+#patient-name {
+    font-weight: 300;
+    font-size: x-large;
+}
