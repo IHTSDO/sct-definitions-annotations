@@ -9,9 +9,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class SingleCodingComponent implements OnInit {
 
   today  = new Date().toLocaleDateString("en", {year:"numeric", day:"2-digit", month:"2-digit"});
+  selectedConcept: any;
+  problems: any[] = [];
 
   binding:any = {
-    title: 'Search for diagnosis',
+    title: 'Search clinical problem',
     type: 'autocomplete',
     ecl: `<< 404684003 |Clinical finding (finding)|`,
     value: '',
@@ -48,6 +50,17 @@ export class SingleCodingComponent implements OnInit {
     });
   }
 
+  setSelectedConcept(problem: any) {
+    this.selectedConcept = problem;
+  }
+
+  addProblem(event: any) {
+    this.problems.push(this.selectedConcept)
+  }
+
+  reloadCurrentPage() {
+    window.location.reload();
+  }
 
   ngOnInit(): void {
   }

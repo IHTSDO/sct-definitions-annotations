@@ -41,7 +41,6 @@ export class AppComponent {
       this.editionsDetails = [];
       this.editions = response.entry;
       let editionNames = new Set();
-      console.log(this.editions)
       this.editions.forEach(loopEdition => {
         editionNames.add(loopEdition.resource.title); // .substr(0,loopEdition.resource.title.lastIndexOf(' '))
       });

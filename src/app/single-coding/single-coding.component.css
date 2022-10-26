@@ -2,11 +2,6 @@
     width: 40%;
 }
 
-.main-content {
-    /* padding-bottom: 50px; */
-}
-
-  
 .example-full-width {
     width: 100%;
 }
@@ -29,4 +24,12 @@ mat-card-actions button {
 #patient-name {
     font-weight: 300;
     font-size: x-large;
+}
+
+#add-problem {
+    margin-top: 10px;
+}
+
+.mat-list .mat-list-item {
+    height: 40px; /* default is 72px */
 }

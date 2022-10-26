@@ -15,19 +15,25 @@
         <h2>Current encounter - {{ today }}</h2>
         <div fxLayout="row" fxLayoutGap="25px">
             <div class="data-entry-box">
-                <app-autocomplete-binding [binding]="binding"></app-autocomplete-binding>
+                <app-autocomplete-binding [binding]="binding" (selectionChange)="setSelectedConcept($event)"></app-autocomplete-binding>
+                <button mat-flat-button color="primary" (click)="addProblem($event)" id="add-problem">Add problem</button>
             </div>
             <div class="data-entry-box">
+                <mat-list role="list">
+                    <mat-list-item role="listitem" *ngFor="let problem of problems">
+                        {{ today }}: {{ problem.display }}
+                    </mat-list-item>
+                </mat-list>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Progress notes</mat-label>
-                    <textarea matInput placeholder="Type progress notes..." rows="20"></textarea>
+                    <textarea matInput placeholder="Type progress notes..." rows="10"></textarea>
                 </mat-form-field>
             </div>
         </div>
     </mat-card-content>
     <mat-card-actions align="end">
         <button mat-flat-button color="primary" (click)="openSnackBar()">Save</button>
-        <button mat-flat-button color="warn" (click)="openSnackBar()">Cancel</button>
+        <button mat-flat-button color="warn" (click)="reloadCurrentPage()">Clear</button>
     </mat-card-actions>
 </mat-card>
 
