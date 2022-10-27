@@ -13,7 +13,7 @@ export class SingleCodingComponent implements OnInit {
   problems: any[] = [];
 
   binding:any = {
-    title: 'Search clinical problem',
+    title: 'Search clinical problem (try "Epileptic seizure" or "Hyaline fibromatosis")',
     type: 'autocomplete',
     ecl: `<< 404684003 |Clinical finding (finding)|`,
     value: '',
