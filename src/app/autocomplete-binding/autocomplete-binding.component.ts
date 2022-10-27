@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TerminologyService } from '../services/terminology.service';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import {debounceTime, distinctUntilChanged, map, startWith, switchMap,tap} from 'rxjs/operators';
 import {Observable, of, Subject} from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,7 +12,7 @@ import { BindingDetailsComponent } from '../binding-details/binding-details.comp
   styleUrls: ['./autocomplete-binding.component.css']
 })
 export class AutocompleteBindingComponent implements OnInit {
-  formControl = new FormControl();
+  formControl = new UntypedFormControl();
   autoFilter: Observable<any> | undefined;
   @Input() binding: any;
   @Output() selectionChange = new EventEmitter<any>();
