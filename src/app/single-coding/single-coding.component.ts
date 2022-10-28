@@ -56,6 +56,7 @@ export class SingleCodingComponent implements OnInit {
 
   addProblem(event: any) {
     this.problems.push(this.selectedConcept)
+    this.selectedConcept = {};
   }
 
   reloadCurrentPage() {

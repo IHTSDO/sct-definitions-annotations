@@ -55,7 +55,6 @@ export class AutocompleteBindingComponent implements OnInit {
           if (isDef) {
             o.part.forEach( (p: any) => {
               if (p.name == "value") {
-                console.log(p.valueString)
                 this.selectedConcept.definition = p.valueString;
               }
             });
