@@ -19,7 +19,6 @@
           "options": {
             "outputPath": "docs",
             "index": "src/index.html",
-            "baseHref": "https://ihtsdo.github.io/sct-definitions-annotations/",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
@@ -36,6 +35,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://ihtsdo.github.io/sct-definitions-annotations/",
               "budgets": [
                 {
                   "type": "initial",
