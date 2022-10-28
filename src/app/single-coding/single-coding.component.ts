@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TerminologyService } from '../services/terminology.service';
 
 @Component({
   selector: 'app-single-coding',
@@ -11,6 +12,9 @@ export class SingleCodingComponent implements OnInit {
   today  = new Date().toLocaleDateString("en", {year:"numeric", day:"2-digit", month:"2-digit"});
   selectedConcept: any;
   problems: any[] = [];
+  loadingDefinitions = false;
+  hasLogo = false;
+  logo = '';
 
   binding:any = {
     title: 'Search clinical problem (try "Epileptic seizure" or "Hyaline fibromatosis")',
@@ -42,7 +46,8 @@ export class SingleCodingComponent implements OnInit {
     }
   }
 
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private _snackBar: MatSnackBar,
+    private terminologyService: TerminologyService) {}
 
   openSnackBar() {
     this._snackBar.openFromComponent(NotImplementedAlertComponent, {
@@ -52,11 +57,46 @@ export class SingleCodingComponent implements OnInit {
 
   setSelectedConcept(problem: any) {
     this.selectedConcept = problem;
+    this.loadingDefinitions = true;
+    this.terminologyService.lookupConcept(problem.code).subscribe(response => {
+      response.parameter.forEach((o: any) => {
+        if (o.name == "designation") {
+          let isDef: boolean = false;
+          o.part.forEach( (p: any) => {
+            if (p.name == "use" && p.valueCoding.code == "900000000000550004") {
+              isDef = true;
+            }
+          });
+          if (isDef) {
+            o.part.forEach( (p: any) => {
+              if (p.name == "value") {
+                this.selectedConcept.definition = p.valueString;
+              }
+            });
+          }
+        }
+      });
+      this.loadingDefinitions = false;
+    });
+    this.hasLogo = false;
+    const ecl = `${problem.code} AND ^ 784008009 |SNOMED CT to Orphanet simple map|`;
+    this.terminologyService.expandValueSet(ecl, '').subscribe(response => {
+      if (response?.expansion?.total > 0) {
+        this.hasLogo = true;
+        this.logo = 'orphanet.png';
+      }
+    });
+    if (this.binding.annotations[problem.code]) {
+      this.hasLogo = true;
+      this.logo = 'ilae-logo.png';
+    }
   }
 
   addProblem(event: any) {
     this.problems.push(this.selectedConcept)
     this.selectedConcept = {};
+    this.hasLogo = false;
+    this.logo = '';
   }
 
   reloadCurrentPage() {

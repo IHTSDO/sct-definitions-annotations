@@ -20,14 +20,3 @@
       </mat-option>
     </mat-autocomplete>
 </mat-form-field>
-<p *ngIf="selectedConcept.code" class="annotation">
-  {{selectedConcept.code}} |{{selectedConcept.display}}|
-</p>
-<img [src]="'assets/img/' + logo" alt="image" class="normal-logo" *ngIf="hasLogo">
-<div *ngIf="loadingDefinitions">
-  <mat-spinner diameter="35"></mat-spinner>
-</div>
-<div *ngIf="!loadingDefinitions" class="annotation">
-  <div [innerHTML]="selectedConcept.definition" matTooltip="Text definition" [matTooltipPosition]="'above'"></div>
-  <div [innerHTML]="selectedConcept.annotation" matTooltip="Concept annotation" [matTooltipPosition]="'below'"></div>
-</div>

@@ -44,14 +44,3 @@ mat-form-field {
     margin-left: 10px;
     margin-right: 10px;
 }
-
-.normal-logo {
-    height: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.annotation {
-    font-style: italic;
-    font-weight: 300;
-}

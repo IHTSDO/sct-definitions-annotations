@@ -33,3 +33,14 @@ mat-card-actions button {
 .mat-list .mat-list-item {
     height: 40px; /* default is 72px */
 }
+
+.normal-logo {
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.annotation {
+    font-style: italic;
+    font-weight: 300;
+}
