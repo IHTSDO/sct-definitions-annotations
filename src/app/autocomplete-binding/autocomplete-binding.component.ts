@@ -53,4 +53,10 @@ export class AutocompleteBindingComponent implements OnInit {
     });
   }
 
+  change(event: any) {
+    console.log(event);
+    const item = event?.option?.value;
+    this.optionSelected({ code: item.code, display: item.display, annotation: this.binding.annotations[item.code], definition: '' });
+  }
+
 }

@@ -37,6 +37,9 @@ export class TerminologyService {
   getValueSetExpansionUrl(ecl: string, terms: string, offset?: number, count?:number) {
     if (!offset) offset = 0;
     if (!count) count = 20;
+    if (typeof terms != 'string') {
+      terms = '';
+    }
     return `${this.snowstormFhirBase}/ValueSet/$expand?url=${this.fhirUrlParam}?fhir_vs=ecl/${encodeURIComponent(ecl)}&count=${count}&offset=${offset}&filter=${terms}&language=${this.lang}`
   }
 
