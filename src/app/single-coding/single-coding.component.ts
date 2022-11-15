@@ -42,7 +42,15 @@ export class SingleCodingComponent implements OnInit {
       <ul>
         <li>Epileptic seizures of focal onset, unknown onset or where the confidence of onset is < 80%</li>
       </ul>
-      `
+      `,
+      "1208961006": ' ',
+      "1236975007": ' ',
+      "192993002": ' ',
+      "192991000": ' ',
+      "1217136003": ' ',
+      "1208960007": ' ',
+      "192981006": ' '
+
     }
   }
 
@@ -86,7 +94,7 @@ export class SingleCodingComponent implements OnInit {
         this.logo = 'orphanet.png';
       }
     });
-    if (this.binding.annotations[problem.code]) {
+    if (this.binding.annotations[problem.code]) { //  || problem.display.includes('epileptic seizure')
       this.hasLogo = true;
       this.logo = 'ilae-logo.png';
     }
