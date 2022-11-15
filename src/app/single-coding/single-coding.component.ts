@@ -33,7 +33,7 @@ export class SingleCodingComponent implements OnInit {
         <li>Epileptic seizures where the clinician is ≥ 80% confident of a generalized onset</li>
         <li>Epileptic seizures where the clinician is ≥ 80% confident of a focal  onset</li>
       </ul>
-      <a href="https://www.epilepsydiagnosis.org" target="_blank">https://www.epilepsydiagnosis.org/seizure/absence-typical-overview.html</a>
+      <a href="https://www.epilepsydiagnosis.org" target="_blank">https://www.epilepsydiagnosis.org</a>
       `,
       "246545002" : `Use for:
       <ul>
@@ -43,7 +43,7 @@ export class SingleCodingComponent implements OnInit {
       <ul>
         <li>Epileptic seizures of focal onset, unknown onset or where the confidence of onset is < 80%</li>
       </ul>
-      <a href="https://www.epilepsydiagnosis.org" target="_blank">https://www.epilepsydiagnosis.org/seizure/absence-typical-overview.html</a>
+      <a href="https://www.epilepsydiagnosis.org" target="_blank">https://www.epilepsydiagnosis.org</a>
       `,
       "1208961006": ' ',
       "1236975007": ' ',
