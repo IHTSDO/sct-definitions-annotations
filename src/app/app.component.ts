@@ -17,8 +17,8 @@ export class AppComponent {
   selectedEdition = 'Edition';
   selectedLanguage = 'en';
   fhirServers = [
-    { name: "SNOMED Public", url: "https://dev-is-browser.ihtsdotools.org/fhir"},
-    // { name: "Daily build", url: "https://dailybuild.ihtsdotools.org/fhir"}
+    // { name: "SNOMED Public", url: "https://dev-is-browser.ihtsdotools.org/fhir"},
+    { name: "Daily build", url: "https://dailybuild.ihtsdotools.org/fhir"}
   ];
   selectedServer = this.fhirServers[0];
 
@@ -58,6 +58,9 @@ export class AppComponent {
       } else {
         this.setEdition(this.editions[0]);
       }
+      // Overriding defaults for daily build
+      this.terminologyService.setFhirUrlParam('http://snomed.info/xsct/900000000000207008');
+      this.selectedEdition = "Latest daily build";
     });
   }
 
